@@ -3,6 +3,7 @@ package com.zytpro.naicha;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.zytpro.naicha.mapper.AdminMapper;
 import com.zytpro.naicha.pojo.Admin;
+import com.zytpro.naicha.service.AdminService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -13,16 +14,15 @@ import java.util.List;
 class NaichaApplicationTests {
 
     @Resource
-    private AdminMapper adminMapper;
+    AdminMapper adminMapper;
+
+    @Resource
+    AdminService adminService;
 
     @Test
     void contextLoads() {
-        LambdaQueryWrapper<Admin> lambdaQueryWrapper = new LambdaQueryWrapper<Admin>();
-        lambdaQueryWrapper.eq(Admin::getAAccount,"admin").eq(Admin::getAPwd,"admin123");
-
-        Admin admin = adminMapper.selectOne(lambdaQueryWrapper);
-//        List<Admin> admins = adminMapper.selectList(null);
-        System.out.println(admin);
+        Admin login = adminService.login("admin111", "admin123");
+        System.out.println(login);
     }
 
 }
