@@ -61,4 +61,14 @@ public class TypeServiceImpl implements TypeService {
     public boolean updataById(Type type) {
         return typeMapper.updateById(type) > 0;
     }
+
+    /**
+     * 添加type数据
+     * @param type：需要添加的type对象
+     * @return：true为成功，false为失败
+     */
+    @Override
+    public boolean insertType(Type type) {
+        return typeMapper.insert(type) > 0;
+    }
 }

@@ -31,4 +31,11 @@ public interface TypeService {
      * @return：true为成功，false为失败
      */
     public boolean updataById(Type type);
+
+    /**
+     * 添加type数据
+     * @param type：需要添加的type对象
+     * @return：true为成功，false为失败
+     */
+    public boolean insertType(Type type);
 }

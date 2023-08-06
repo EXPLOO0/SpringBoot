@@ -57,4 +57,12 @@ class NaichaApplicationTests {
         System.out.println(typeService.updataById(type));
     }
 
+    @Test
+    void insertTypeTest() {
+        Type type = new Type();
+        type.setTState(1);
+        type.setTypeName("测试");
+        type.setTImageUrl("123465");
+        System.out.println(typeService.insertType(type));
+    }
 }
