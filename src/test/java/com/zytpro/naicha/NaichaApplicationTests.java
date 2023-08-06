@@ -44,9 +44,27 @@ class NaichaApplicationTests {
 
     @Test
     void getTypeTest() {
-//        int i = typeMapper.deleteById(1);
         IPage<Type> page = typeService.getTypeByPage("奶奶", 1, 9);
-        System.out.println(page.getRecords());
+        System.out.println("当前页码："+page.getCurrent());
+        System.out.println("每页数据总量："+page.getSize());
+        System.out.println("总页数："+page.getPages());
+        System.out.println("数据总量："+page.getTotal());
+        System.out.println("当前页数据："+page.getRecords());
+        System.out.println("----------");
+        page = typeService.getTypeByPage("奶", 1, 9);
+        System.out.println("当前页码："+page.getCurrent());
+        System.out.println("每页数据总量："+page.getSize());
+        System.out.println("总页数："+page.getPages());
+        System.out.println("数据总量："+page.getTotal());
+        System.out.println("当前页数据："+page.getRecords());
+        System.out.println("----------");
+        page = typeService.getTypeByPage("奶", 2, 9);
+        System.out.println("当前页码："+page.getCurrent());
+        System.out.println("每页数据总量："+page.getSize());
+        System.out.println("总页数："+page.getPages());
+        System.out.println("数据总量："+page.getTotal());
+        System.out.println("当前页数据："+page.getRecords());
+        System.out.println("----------");
     }
 
     @Test
