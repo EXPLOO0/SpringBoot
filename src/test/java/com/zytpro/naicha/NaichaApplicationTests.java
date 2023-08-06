@@ -40,4 +40,10 @@ class NaichaApplicationTests {
         System.out.println("删除："+i);
     }
 
+    @Test
+    void getTypeTest() {
+//        int i = typeMapper.deleteById(1);
+        System.out.println(typeService.getTypeByPage("奶奶", 1, 9));
+    }
+
 }
