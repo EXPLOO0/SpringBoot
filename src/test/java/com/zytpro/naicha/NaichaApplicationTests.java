@@ -5,6 +5,7 @@ import com.zytpro.naicha.mapper.AdminMapper;
 import com.zytpro.naicha.mapper.TypeMapper;
 import com.zytpro.naicha.pojo.Admin;
 import com.zytpro.naicha.service.AdminService;
+import com.zytpro.naicha.service.TypeService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -23,6 +24,9 @@ class NaichaApplicationTests {
     @Resource
     AdminService adminService;
 
+    @Resource
+    TypeService typeService;
+
     @Test
     void getAdminTest() {
         Admin login = adminService.getByAccountAndPwd("admin111", "admin123");
@@ -31,7 +35,8 @@ class NaichaApplicationTests {
 
     @Test
     void deleteTypeTest() {
-        int i = typeMapper.deleteById(1);
+//        int i = typeMapper.deleteById(1);
+        int i = typeService.deleteById(1);
         System.out.println("删除："+i);
     }
 
