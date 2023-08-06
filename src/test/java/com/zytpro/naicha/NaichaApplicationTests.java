@@ -21,7 +21,7 @@ class NaichaApplicationTests {
 
     @Test
     void contextLoads() {
-        Admin login = adminService.login("admin111", "admin123");
+        Admin login = adminService.getByAccountAndPwd("admin111", "admin123");
         System.out.println(login);
     }
 
