@@ -8,5 +8,5 @@ import com.zytpro.naicha.pojo.Admin;
  * @Date：2023/8/6 13:40
  */
 public interface AdminService {
-    public Admin login(String account, String pwd);
+    public Admin getByAccountAndPwd(String account, String pwd);
 }

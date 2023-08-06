@@ -26,7 +26,7 @@ public class AdminServiceImpl implements AdminService {
      * @return：admin对象，找到了就返回admin对象，没找到就返回null
      */
     @Override
-    public Admin login(String account, String pwd) {
+    public Admin getByAccountAndPwd(String account, String pwd) {
         // 创建LambdaQueryWrapper条件构造器对象
         LambdaQueryWrapper<Admin> lambdaQueryWrapper = new LambdaQueryWrapper<Admin>();
         // 给条件构造器对象添加条件，判断用户名和密码
