@@ -12,7 +12,7 @@ public interface TypeService {
     /**
      * 根据id删除type表中的数据
      * @param id：id
-     * @return：返回值为影响行数，0为删除失败
+     * @return：true为成功，false为失败
      */
     public Boolean deleteById(int id);
 
@@ -21,7 +21,14 @@ public interface TypeService {
      * @param typeName：商品类型名
      * @param page: 当前页数
      * @param limit: 每页最大数据量
-     * @return: 查找成功将数据装进list，失败则返回null
+     * @return: 查找成功将分页数据返回，失败则返回null
      */
     public IPage<Type> getTypeByPage(String typeName, Integer page, Integer limit);
+
+    /**
+     * 根据id修改type表中的数据
+     * @param type：需要修改的type对象
+     * @return：true为成功，false为失败
+     */
+    public boolean updataById(Type type);
 }

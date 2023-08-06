@@ -24,7 +24,7 @@ public class TypeServiceImpl implements TypeService {
     /**
      * 根据id删除type表中的数据
      * @param id：id
-     * @return：返回值为影响行数，0为删除失败
+     * @return：true为成功，false为失败
      */
     @Override
     public Boolean deleteById(int id) {
@@ -38,7 +38,7 @@ public class TypeServiceImpl implements TypeService {
      * @param typeName：商品类型名
      * @param page:          当前页数
      * @param limit:         每页最大数据量
-     * @return: 查找成功将数据装进list，失败则返回null
+     * @return: 查找成功将分页数据返回，失败则返回null
      */
     @Override
     public IPage<Type> getTypeByPage(String typeName, Integer page, Integer limit){
@@ -50,5 +50,15 @@ public class TypeServiceImpl implements TypeService {
         lambdaQueryWrapper.like(null != typeName,Type::getTypeName,typeName);
         // 通过selectPage方法获取分页数据
         return typeMapper.selectPage(ipage, lambdaQueryWrapper);
+    }
+
+    /**
+     * 根据id修改type表中的数据
+     * @param type：需要修改的type对象
+     * @return：true为成功，false为失败
+     */
+    @Override
+    public boolean updataById(Type type) {
+        return typeMapper.updateById(type) > 0;
     }
 }

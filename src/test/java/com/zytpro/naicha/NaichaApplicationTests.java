@@ -49,4 +49,12 @@ class NaichaApplicationTests {
         System.out.println(page.getRecords());
     }
 
+    @Test
+    void updateTypeTest() {
+        Type type = new Type();
+        type.setId(19);
+        type.setTState(1);
+        System.out.println(typeService.updataById(type));
+    }
+
 }
