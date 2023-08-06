@@ -7,12 +7,12 @@ import lombok.Data;
  * @Author：ZYT
  * @Date：2023/8/6 13:33
  */
-@Data
-public class admin {
+@Data  /* lombok的功能，自动给get和set */
+public class Admin {
     /**
      * id
      */
-    private Integer aid;
+    private Integer aId;
     /**
      * 账号
      */
@@ -22,7 +22,7 @@ public class admin {
      */
     private String aPwd;
     /**
-     * 管理员头像
+     * 头像图片的存储路径
      */
     private String aHeadPhoto;
     /**
@@ -41,4 +41,5 @@ public class admin {
      * 年龄
      */
     private Integer aAge;
+
 }

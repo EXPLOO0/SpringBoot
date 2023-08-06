@@ -1,7 +1,7 @@
 package com.zytpro.naicha.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zytpro.naicha.pojo.admin;
+import com.zytpro.naicha.pojo.Admin;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,5 +10,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @Date：2023/8/6 13:38
  */
 @Mapper
-public interface adminMapper extends BaseMapper<admin> {
+public interface AdminMapper extends BaseMapper<Admin> {
 }
