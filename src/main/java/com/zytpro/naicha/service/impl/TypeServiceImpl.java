@@ -36,8 +36,8 @@ public class TypeServiceImpl implements TypeService {
      * 根据条件获取type表中的分页数据，若有typeName则根据typeName查找分页数据，否则查询所有的
      *
      * @param typeName：商品类型名
-     * @param page:          当前页数
-     * @param limit:         每页最大数据量
+     * @param page: 当前页数
+     * @param limit: 每页最大数据量
      * @return 查找成功将分页数据返回，失败则返回null
      */
     @Override
@@ -48,8 +48,19 @@ public class TypeServiceImpl implements TypeService {
         LambdaQueryWrapper<Type> lambdaQueryWrapper = new LambdaQueryWrapper<Type>();
         // 给条件构造器对象添加条件，先判断查询条件是否存在，存在则根据条件查找，不存在则查找所有
         lambdaQueryWrapper.like(null != typeName,Type::getTypeName,typeName);
-        // 通过selectPage方法获取分页数据
+        // 通过selectPage方法获取分页数据，查找成功将分页数据返回，失败则返回null
         return typeMapper.selectPage(ipage, lambdaQueryWrapper);
+    }
+
+    /**
+     * 根据id查找数据
+     * @param id： id编号
+     * @return 查找成功将数据返回，失败则返回null
+     */
+    @Override
+    public Type getTypeById(Integer id) {
+        // 查找成功将数据返回，失败则返回null
+        return typeMapper.selectById(id);
     }
 
     /**
@@ -59,6 +70,7 @@ public class TypeServiceImpl implements TypeService {
      */
     @Override
     public boolean updataById(Type type) {
+        // 修改成功返回true，失败返回false
         return typeMapper.updateById(type) > 0;
     }
 
@@ -69,6 +81,7 @@ public class TypeServiceImpl implements TypeService {
      */
     @Override
     public boolean insertType(Type type) {
+        // 添加成功返回true，失败返回false
         return typeMapper.insert(type) > 0;
     }
 }

@@ -21,21 +21,28 @@ public interface TypeService {
      * @param typeName：商品类型名
      * @param page: 当前页数
      * @param limit: 每页最大数据量
-     * @return: 查找成功将分页数据返回，失败则返回null
+     * @return 查找成功将分页数据返回，失败则返回null
      */
     public IPage<Type> getTypeByPage(String typeName, Integer page, Integer limit);
 
     /**
+     * 根据id查找数据
+     * @param id： id编号
+     * @return 查找成功将数据返回，失败则返回null
+     */
+    public Type getTypeById(Integer id);
+
+    /**
      * 根据id修改type表中的数据
      * @param type：需要修改的type对象
-     * @return：true为成功，false为失败
+     * @return true为成功，false为失败
      */
     public boolean updataById(Type type);
 
     /**
      * 添加type数据
      * @param type：需要添加的type对象
-     * @return：true为成功，false为失败
+     * @return true为成功，false为失败
      */
     public boolean insertType(Type type);
 }
