@@ -1,9 +1,7 @@
 package com.zytpro.naicha.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zytpro.naicha.pojo.Type;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 /**
  * @Description：数据表type的Service层
@@ -16,7 +14,7 @@ public interface TypeService {
      * @param id：id
      * @return：返回值为影响行数，0为删除失败
      */
-    public int deleteById(int id);
+    public Boolean deleteById(int id);
 
     /**
      * 根据条件获取type表中的分页数据，若有typeName则根据typeName查找分页数据，否则查询所有的
@@ -25,5 +23,5 @@ public interface TypeService {
      * @param limit: 每页最大数据量
      * @return: 查找成功将数据装进list，失败则返回null
      */
-    public List<Type> getTypeByPage(String typeName, Integer page, Integer limit);
+    public IPage<Type> getTypeByPage(String typeName, Integer page, Integer limit);
 }
