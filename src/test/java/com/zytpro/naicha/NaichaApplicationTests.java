@@ -2,6 +2,7 @@ package com.zytpro.naicha;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.zytpro.naicha.mapper.AdminMapper;
+import com.zytpro.naicha.mapper.TypeMapper;
 import com.zytpro.naicha.pojo.Admin;
 import com.zytpro.naicha.service.AdminService;
 import org.junit.jupiter.api.Test;
@@ -17,12 +18,21 @@ class NaichaApplicationTests {
     AdminMapper adminMapper;
 
     @Resource
+    TypeMapper typeMapper;
+
+    @Resource
     AdminService adminService;
 
     @Test
-    void contextLoads() {
+    void getAdminTest() {
         Admin login = adminService.getByAccountAndPwd("admin111", "admin123");
         System.out.println(login);
+    }
+
+    @Test
+    void deleteTypeTest() {
+        int i = typeMapper.deleteById(1);
+        System.out.println("删除："+i);
     }
 
 }
