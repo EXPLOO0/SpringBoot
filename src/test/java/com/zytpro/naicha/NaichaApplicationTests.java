@@ -36,7 +36,7 @@ class NaichaApplicationTests {
     @Test
     void deleteTypeTest() {
 //        int i = typeMapper.deleteById(1);
-        int i = typeService.deleteById(1);
+        int i = typeService.deleteById(99);
         System.out.println("删除："+i);
     }
 

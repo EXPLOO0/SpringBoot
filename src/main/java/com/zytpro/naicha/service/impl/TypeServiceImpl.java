@@ -17,8 +17,14 @@ public class TypeServiceImpl implements TypeService {
     @Resource
     TypeMapper typeMapper;
 
+    /**
+     * 根据id删除type表中的数据
+     * @param id：id
+     * @return：返回值为影响行数，0为删除失败
+     */
     @Override
     public int deleteById(int id) {
+        // 使用MyBatisPlus的deleteById方法，根据id删除对象，删除方式为逻辑删除
         return typeMapper.deleteById(id);
     }
 }
