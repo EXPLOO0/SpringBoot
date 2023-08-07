@@ -15,4 +15,7 @@ mybatis-plus:
       logic-delete-field: deleted
       logic-delete-value: 1
       logic-not-delete-value: 0
+      id-type: auto
     banner: false
+  mapper-locations: classpath:mappers/*xml
+  type-aliases-package: com.zytpro.naicha.pojo

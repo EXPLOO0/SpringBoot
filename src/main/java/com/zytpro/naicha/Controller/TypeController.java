@@ -53,7 +53,7 @@ public class TypeController {
      */
     @GetMapping ("/{id}")
     public RespData getTypeById(@PathVariable("id") Integer id) {
-        // 调用ervice层的getTypeById方法，并判断查找是否成功
+        // 调用Service层的getTypeById方法，并判断查找是否成功
         Type typeById = typeService.getTypeById(id);
         if (typeById != null)
             // 查找成功，返回SUCCESS
@@ -87,7 +87,7 @@ public class TypeController {
      */
     @DeleteMapping("/{id}")
     public RespData deleteType(@PathVariable("id") Integer id) {
-        // 调用ervice层的deleteById方法，并判断删除是否成功
+        // 调用Service层的deleteById方法，并判断删除是否成功
         if (typeService.deleteById(id))
             // 删除成功，返回SUCCESS
             return new RespData(RespCode.SUCCESS);
@@ -101,7 +101,7 @@ public class TypeController {
      * @return 修改成功返回成功信息，否则返回失败信息
      */
     @PutMapping
-    public RespData updataTypw(Type type){
+    public RespData updataType(Type type){
         // 判断TypeName是否输入，若未输入类型名，返回"未输入信息!!"
         if (type.getTypeName() == null || type.getTypeName() == "")
             return new RespData(RespCode.ERROR_4);

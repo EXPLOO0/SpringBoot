@@ -2,6 +2,7 @@ package com.zytpro.naicha.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zytpro.naicha.mapper.TypeMapper;
 import com.zytpro.naicha.pojo.Type;
@@ -47,7 +48,7 @@ public class TypeServiceImpl implements TypeService {
         // 创建条件构造器对象
         LambdaQueryWrapper<Type> lambdaQueryWrapper = new LambdaQueryWrapper<Type>();
         // 给条件构造器对象添加条件，先判断查询条件是否存在，存在则根据条件查找，不存在则查找所有
-        lambdaQueryWrapper.like(null != typeName,Type::getTypeName,typeName);
+        lambdaQueryWrapper.like(StringUtils.isNotBlank(typeName), Type::getTypeName, typeName);
         // 通过selectPage方法获取分页数据，查找成功将分页数据返回，失败则返回null
         return typeMapper.selectPage(ipage, lambdaQueryWrapper);
     }
